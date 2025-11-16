@@ -1,9 +1,5 @@
 # moshewelcher.github.io
-### Hi there 👋, I'm [Your Name]!
-
-<p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2NscG9uM3NwaDVkZnc3d2R6cHl3b2R3eDQ3NmdvN2x6eXlwanJzbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgQUggACmCggrwsUXh/giphy.gif" width="300" />
-</p>
+### Hi there 👋, I'm Moshe Welcher!
 
 ---
 
