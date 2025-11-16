@@ -6,7 +6,7 @@
 I'm a Computer Programmer based in New York City.
 
 * 🔭 I’m currently working on **Everything**.
-* 🌱 I’m currently learning more about Git.
+* 🌱 I’m currently learning more about **Git**.
 * 👯 I’m looking to collaborate on **GroupMe Add-ons**.
 * 📫 How to reach me: **<welchermoshe@gmail.com>** 
 
