@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moshe Welcher | Full Stack Developer</title>
     
+    <!-- Meta Tags for Link Previews -->
+    <meta name="description" content="An aggressive Full Stack Developer building robust applications for the modern web. Explore my interactive developer portfolio.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moshewelcher.github.io/">
+    <meta property="og:title" content="Moshe Welcher | Full Stack Developer">
+    <meta property="og:description" content="An aggressive Full Stack Developer building robust applications for the modern web. Explore my interactive developer portfolio.">
+    <meta property="og:image" content="https://github.com/moshewelcher.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://moshewelcher.github.io/">
+    <meta property="twitter:title" content="Moshe Welcher | Full Stack Developer">
+    <meta property="twitter:description" content="An aggressive Full Stack Developer building robust applications for the modern web. Explore my interactive developer portfolio.">
+    <meta property="twitter:image" content="https://github.com/moshewelcher.png">
+    
     <!-- FAVICON UPDATED: Reads 'favicon.png' from your repository root -->
-    <link rel="icon" href="new-favicon.png" type="image/png">
+    <link rel="icon" href="favicon.png" type="image/png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -178,7 +195,7 @@
         <!-- Combined Sidebar (Collapsed by Default) -->
         <div id="main-sidebar" class="bg-editor-sidebar flex flex-col border-r border-gray-800 sidebar-transition w-16 sidebar-collapsed relative z-30">
             
-            <!-- Header / Toggle -->
+            <!-- Header / Toggle (Added class sidebar-header for CSS fix) -->
             <div class="h-10 flex items-center justify-between px-4 border-b border-black sidebar-header">
                 <span class="text-xs font-bold tracking-wider text-gray-400 uppercase sidebar-text">Explorer</span>
                 <button onclick="toggleSidebar()" class="text-gray-500 hover:text-white focus:outline-none p-1 rounded hover:bg-gray-800 transition-colors">
@@ -266,7 +283,7 @@
                 <span id="breadcrumb-file" class="text-gray-300">home.tsx</span>
             </div>
             
-            <!-- Custom Status Message Area (for Contact form feedback) -->
+            <!-- Global Notification Area (Used by Settings/Chaos Mode) -->
             <div id="status-message" class="hidden absolute top-0 left-1/2 -translate-x-1/2 mt-2 px-4 py-2 text-xs rounded shadow-lg font-bold z-50 transition-opacity duration-300"></div>
 
             <!-- Main Content Area -->
@@ -498,6 +515,11 @@
                     
                     <div class="code-line">
                          <div class="pl-4 md:pl-8 w-full font-sans pr-4">
+                            <!-- Visitor Counter -->
+                            <div class="mb-6 flex justify-center md:justify-start">
+                                <img src="https://komarev.com/ghpvc/?username=MosheWelcher&label=VIEWS&style=for-the-badge&color=cba6f7" alt="Profile Views">
+                            </div>
+
                             <!-- GitHub Stats & Languages - Styled to match theme -->
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
                                 
