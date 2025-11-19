@@ -104,6 +104,14 @@
             margin-right: 0;
             font-size: 1.25rem; 
         }
+
+        /* Fix for centering the toggle button when collapsed */
+        /* Added !important to override Tailwind utility classes */
+        .sidebar-collapsed .sidebar-header {
+            justify-content: center !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
         
         /* Tooltip logic for collapsed state */
         .sidebar-collapsed .sidebar-item:hover::after {
@@ -171,7 +179,7 @@
         <div id="main-sidebar" class="bg-editor-sidebar flex flex-col border-r border-gray-800 sidebar-transition w-16 sidebar-collapsed relative z-30">
             
             <!-- Header / Toggle -->
-            <div class="h-10 flex items-center justify-between px-4 border-b border-black">
+            <div class="h-10 flex items-center justify-between px-4 border-b border-black sidebar-header">
                 <span class="text-xs font-bold tracking-wider text-gray-400 uppercase sidebar-text">Explorer</span>
                 <button onclick="toggleSidebar()" class="text-gray-500 hover:text-white focus:outline-none p-1 rounded hover:bg-gray-800 transition-colors">
                     <i class="fa-solid fa-bars"></i>
@@ -381,41 +389,98 @@
                     
                     <div class="code-line">
                         <div class="w-full px-4 pt-4">
-                            <div class="prose prose-invert max-w-none font-sans">
-                                <h2 class="text-3xl text-white font-bold mb-4 flex items-center">
-                                    <span class="text-editor-keyword mr-2">#</span> About Me
+                            
+                            <!-- Terminal "Neofetch" Style Intro -->
+                            <div class="bg-black/30 rounded-lg border border-gray-800 p-4 mb-8 font-mono text-sm shadow-lg">
+                                <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    <span class="ml-2 text-gray-500 text-xs">moshe@portfolio:~</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
+                                    <div class="hidden md:block text-editor-func">
+                                       <pre class="leading-tight">
+   __  __
+  |  \/  |
+  | \  / |
+  | |\/| |
+  | |  | |
+  |_|  |_|
+                                       </pre>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div><span class="text-editor-keyword">user</span>@<span class="text-editor-string">moshe-pc</span></div>
+                                        <div>----------------</div>
+                                        <div><span class="text-editor-func">OS</span>: Full Stack Web</div>
+                                        <div><span class="text-editor-func">Shell</span>: ZSH / Bash</div>
+                                        <div><span class="text-editor-func">Location</span>: United States</div>
+                                        <div><span class="text-editor-func">Origin</span>: Raspberry Pi 2 Model B</div>
+                                        <div><span class="text-editor-func">Language</span>: Python, JS, GAS</div>
+                                        <div><span class="text-editor-func">Uptime</span>: 24/6</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prose prose-invert max-w-none font-sans mb-10">
+                                <h2 class="text-2xl text-white font-bold mb-4 flex items-center">
+                                    <span class="text-editor-keyword mr-2">#</span> Bio
                                 </h2>
-                                <p class="text-gray-300 mb-6 leading-relaxed">
+                                <p class="text-gray-300 mb-6 leading-relaxed border-l-4 border-editor-keyword pl-4 bg-editor-active/30 py-2 rounded-r">
                                     Hello! I'm <span class="text-white font-bold">Moshe Welcher</span>, a developer based in the US. I have always been interested in programming. My journey started when I began programming Python on a Raspberry Pi 2 Model B, which sparked my deep interest in building robust and scalable software solutions.
                                 </p>
+                            </div>
                                 
-                                <h3 class="text-xl text-white font-bold mb-3 flex items-center">
-                                    <span class="text-editor-keyword mr-2">##</span> Tech Stack
-                                </h3>
-                                <div class="flex flex-wrap gap-3 mb-8">
-                                    <img src="https://img.shields.io/badge/JAVASCRIPT-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" class="h-7">
-                                    
-                                    <!-- Custom Badge for Google Apps Script -->
-                                    <img src="https://img.shields.io/badge/Google%20Apps%20Script-4285F4?style=for-the-badge&logo=googleappsscript&logoColor=white" alt="Google Apps Script" class="h-7">
-                                    
-                                    <img src="https://img.shields.io/badge/PYTHON-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" class="h-7">
-                                    <img src="https://img.shields.io/badge/NODE.JS-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" class="h-7">
-                                    
-                                    <!-- Custom CSS Badge for JTech to match Shield Style -->
-                                    <div class="inline-flex items-center bg-[#353535] h-[28px] px-3 rounded-none select-none">
-                                        <img src="https://forums.jtechforums.org/uploads/default/optimized/2X/5/5890c40c648110080e2692cac43e2f0e715fe885_2_180x180.png" alt="JTech Logo" class="w-4 h-4 mr-2 object-contain">
-                                        <span class="text-white text-[11px] font-bold uppercase tracking-widest font-sans">JTECH</span>
-                                    </div>
+                            <h3 class="text-xl text-white font-bold mb-4 flex items-center font-sans">
+                                <span class="text-editor-keyword mr-2">##</span> Tech Stack
+                            </h3>
+                            <div class="flex flex-wrap gap-3 mb-8 items-center">
+                                <img src="https://img.shields.io/badge/JAVASCRIPT-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript" class="h-7">
+                                
+                                <!-- Custom Badge for Google Apps Script -->
+                                <img src="https://img.shields.io/badge/Google%20Apps%20Script-4285F4?style=for-the-badge&logo=googleappsscript&logoColor=white" alt="Google Apps Script" class="h-7">
+                                
+                                <img src="https://img.shields.io/badge/PYTHON-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" class="h-7">
+                                <img src="https://img.shields.io/badge/NODE.JS-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" class="h-7">
+                                
+                                <!-- Custom CSS Badge for JTech to match Shield Style -->
+                                <div class="inline-flex items-center bg-[#353535] h-[28px] px-3 rounded-none select-none">
+                                    <img src="https://forums.jtechforums.org/uploads/default/optimized/2X/5/5890c40c648110080e2692cac43e2f0e715fe885_2_180x180.png" alt="JTech Logo" class="w-4 h-4 mr-2 object-contain">
+                                    <span class="text-white text-[11px] font-bold uppercase tracking-widest font-sans">JTECH</span>
+                                </div>
 
-                                    <img src="https://img.shields.io/badge/VS_CODE-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="VS Code" class="h-7">
-                                    
-                                    <!-- Custom CSS Badge for Google AI Studio to match Shield Style -->
-                                    <div class="inline-flex items-center bg-[#8E75B2] h-[28px] px-3 rounded-none select-none">
-                                        <i class="fa-solid fa-wand-magic-sparkles text-white mr-2 text-sm"></i>
-                                        <span class="text-white text-[11px] font-bold uppercase tracking-widest font-sans">GOOGLE AI STUDIO</span>
-                                    </div>
+                                <img src="https://img.shields.io/badge/VS_CODE-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="VS Code" class="h-7">
+                                
+                                <!-- Custom CSS Badge for Google AI Studio to match Shield Style -->
+                                <div class="inline-flex items-center bg-[#8E75B2] h-[28px] px-3 rounded-none select-none">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-white mr-2 text-sm"></i>
+                                    <span class="text-white text-[11px] font-bold uppercase tracking-widest font-sans">GOOGLE AI STUDIO</span>
+                                </div>
 
-                                    <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" alt="Git" class="h-7">
+                                <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" alt="Git" class="h-7">
+                                
+                                <!-- New Additions -->
+                                <img src="https://img.shields.io/badge/BASH-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash" class="h-7">
+                                <img src="https://img.shields.io/badge/RASPBERRY_PI-C51A4A?style=for-the-badge&logo=raspberry-pi&logoColor=white" alt="Raspberry Pi" class="h-7">
+                                <img src="https://img.shields.io/badge/UBUNTU-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu" class="h-7">
+                            </div>
+
+                            <!-- Core Focus Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 font-sans">
+                                <div class="bg-editor-sidebar border border-gray-800 p-5 rounded hover:border-editor-string transition-colors">
+                                    <i class="fa-solid fa-server text-editor-string text-2xl mb-3"></i>
+                                    <h3 class="font-bold text-white mb-1">Backend Dev</h3>
+                                    <p class="text-xs text-gray-500">Building scalable server-side logic and APIs using Node.js & Python.</p>
+                                </div>
+                                <div class="bg-editor-sidebar border border-gray-800 p-5 rounded hover:border-editor-func transition-colors">
+                                    <i class="fa-solid fa-robot text-editor-func text-2xl mb-3"></i>
+                                    <h3 class="font-bold text-white mb-1">Automation</h3>
+                                    <p class="text-xs text-gray-500">Streamlining workflows and connecting services with Google Apps Script.</p>
+                                </div>
+                                <div class="bg-editor-sidebar border border-gray-800 p-5 rounded hover:border-editor-keyword transition-colors">
+                                    <i class="fa-solid fa-layer-group text-editor-keyword text-2xl mb-3"></i>
+                                    <h3 class="font-bold text-white mb-1">Architecture</h3>
+                                    <p class="text-xs text-gray-500">Designing clean, maintainable code structures for complex applications.</p>
                                 </div>
                             </div>
                         </div>
@@ -434,14 +499,29 @@
                     <div class="code-line">
                          <div class="pl-4 md:pl-8 w-full font-sans pr-4">
                             <!-- GitHub Stats & Languages - Styled to match theme -->
-                            <div class="grid gap-6 md:grid-cols-2">
+                            <div class="flex flex-col gap-6">
+                                <!-- General Stats -->
                                 <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
                                     <img src="https://github-readme-stats.vercel.app/api?username=MosheWelcher&show_icons=true&theme=radical&hide_border=true&bg_color=1e1e2e&title_color=cba6f7&icon_color=f9e2af&text_color=cdd6f4" 
                                          alt="Moshe's GitHub Stats" class="w-full h-auto">
                                 </div>
+
+                                <!-- Streak Stats -->
+                                <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
+                                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=MosheWelcher&theme=radical&hide_border=true&background=1e1e2e&ring=cba6f7&currStreakNum=cdd6f4&currStreakLabel=cba6f7&sideNums=cdd6f4&sideLabels=cba6f7&dates=a6e3a1&fire=fab387" 
+                                         alt="Moshe's GitHub Streak" class="w-full h-auto">
+                                </div>
+
+                                <!-- Top Languages -->
                                 <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
                                     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=MosheWelcher&layout=compact&theme=radical&hide_border=true&bg_color=1e1e2e&title_color=cba6f7&text_color=cdd6f4" 
                                          alt="Moshe's Top Languages" class="w-full h-auto">
+                                </div>
+
+                                <!-- Activity Graph -->
+                                <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
+                                    <img src="https://github-readme-activity-graph.vercel.app/graph?username=MosheWelcher&bg_color=1e1e2e&color=cba6f7&line=cba6f7&point=cdd6f4&area=true&hide_border=true" 
+                                         alt="Moshe's Contribution Graph" class="w-full h-auto">
                                 </div>
                             </div>
                         </div>
