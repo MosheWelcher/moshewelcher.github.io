@@ -22,8 +22,8 @@
     <meta property="twitter:description" content="An aggressive Full Stack Developer building robust applications for the modern web. Explore my interactive developer portfolio.">
     <meta property="twitter:image" content="https://github.com/moshewelcher.png">
     
-    <!-- FAVICON UPDATED: Reads 'favicon.png' from your repository root -->
-    <link rel="icon" href="favicon.png" type="image/png">
+    <!-- FAVICON UPDATED: Points to 'new-favicon.png' as requested -->
+    <link rel="icon" href="new-favicon.png" type="image/png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -284,7 +284,7 @@
             </div>
             
             <!-- Global Notification Area (Used by Settings/Chaos Mode) -->
-            <div id="status-message" class="hidden absolute top-0 left-1/2 -translate-x-1/2 mt-2 px-4 py-2 text-xs rounded shadow-lg font-bold z-50 transition-opacity duration-300"></div>
+            <div id="status-message" class="hidden z-50 transition-all duration-300 font-bold pointer-events-none"></div>
 
             <!-- Main Content Area -->
             <div class="flex-1 overflow-y-auto relative font-mono text-sm md:text-base py-4 scroll-smooth" id="content-area">
@@ -515,11 +515,6 @@
                     
                     <div class="code-line">
                          <div class="pl-4 md:pl-8 w-full font-sans pr-4">
-                            <!-- Visitor Counter -->
-                            <div class="mb-6 flex justify-center md:justify-start">
-                                <img src="https://komarev.com/ghpvc/?username=MosheWelcher&label=VIEWS&style=for-the-badge&color=cba6f7" alt="Profile Views">
-                            </div>
-
                             <!-- GitHub Stats & Languages - Styled to match theme -->
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
                                 
@@ -550,6 +545,17 @@
                                 </div>
                                 
                             </div>
+
+                            <!-- Website Traffic Card (Full Width Bottom) -->
+                            <div class="mt-4 w-full">
+                                <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-4 hover:border-editor-func transition-colors flex flex-col items-center justify-center">
+                                    <div class="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2 flex items-center">
+                                        <i class="fa-solid fa-eye mr-2 text-editor-func"></i> Total Page Visits
+                                    </div>
+                                    <img src="https://komarev.com/ghpvc/?username=MosheWelcher&label=PAGE%20VIEWS&style=for-the-badge&color=cba6f7" alt="Page Views" class="h-8">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -580,23 +586,40 @@
 
     <script>
         // Utility to display in-app status messages
-        function showCustomAlert(message, isError = false) {
+        function showCustomAlert(message, isLarge = false) {
             const statusArea = document.getElementById('status-message');
             if (statusArea) {
                 statusArea.textContent = message;
-                statusArea.classList.remove('hidden', 'bg-editor-string/50', 'text-editor-string', 'bg-red-800/50', 'text-red-400');
                 
-                if (isError) {
-                    statusArea.classList.add('bg-red-800/50', 'text-red-400');
-                } else {
-                    statusArea.classList.add('bg-editor-string/50', 'text-editor-string');
-                }
+                // Reset base classes (remove positioning/sizing/colors)
+                statusArea.className = 'hidden fixed left-1/2 -translate-x-1/2 rounded shadow-lg font-bold z-50 transition-all duration-300 pointer-events-none';
 
-                statusArea.style.opacity = '1';
+                if (isLarge) {
+                    // Large Centered
+                    statusArea.classList.add('top-1/2', '-translate-y-1/2', 'text-5xl', 'p-10', 'border-4', 'shadow-2xl', 'text-center');
+                } else {
+                    // Normal Top Toast
+                    statusArea.classList.add('top-4', 'text-xs', 'px-4', 'py-2', 'border');
+                }
+                
+                // Color Theme (Default)
+                statusArea.classList.add('bg-editor-string/90', 'text-black', 'border-editor-string');
+
+                // Trigger Animation
+                statusArea.classList.remove('hidden');
+                // Small timeout to allow display:block to apply before opacity transition
+                requestAnimationFrame(() => {
+                    statusArea.style.opacity = '1';
+                    statusArea.style.transform = isLarge 
+                        ? 'translate(-50%, -50%) scale(1)' 
+                        : 'translate(-50%, 0) scale(1)';
+                });
+
                 setTimeout(() => {
                     statusArea.style.opacity = '0';
-                    setTimeout(() => statusArea.classList.add('hidden'), 300); // Wait for fade out
-                }, 3000);
+                    // Optional: scale down on exit
+                    setTimeout(() => statusArea.classList.add('hidden'), 300);
+                }, 2500);
             }
         }
 
@@ -616,7 +639,7 @@
                 body.style.fontFamily = '';
                 body.style.transform = '';
                 body.style.filter = '';
-                showCustomAlert("Phew! Back to safe mode.");
+                showCustomAlert("Phew! Back to safe mode.", true); // Made 'safe mode' alert large too, per user request implication to manage large alerts
             }
         }
 
@@ -664,7 +687,7 @@
 
             // Reset all tabs styling
             document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active-tab', 'bg-editor-bg', 'border-editor-keyword');
+                tab.classList.remove('active-tab', 'bg-editor-bg', 'border-editor-keyword', 'text-white');
                 tab.classList.add('border-transparent', 'text-gray-500');
             });
             
