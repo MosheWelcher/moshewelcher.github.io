@@ -488,7 +488,7 @@
                 </div>
 
                 <!-- STATS PAGE (Replaced Contact) -->
-                <div id="page-stats" class="page-content hidden max-w-5xl">
+                <div id="page-stats" class="page-content hidden max-w-6xl">
                     <div class="code-line mb-6">
                         <span class="text-editor-keyword">const</span>
                         <span class="text-editor-func ml-2">githubStats</span>
@@ -499,30 +499,34 @@
                     <div class="code-line">
                          <div class="pl-4 md:pl-8 w-full font-sans pr-4">
                             <!-- GitHub Stats & Languages - Styled to match theme -->
-                            <div class="flex flex-col gap-6">
-                                <!-- General Stats -->
-                                <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
-                                    <img src="https://github-readme-stats.vercel.app/api?username=MosheWelcher&show_icons=true&theme=radical&hide_border=true&bg_color=1e1e2e&title_color=cba6f7&icon_color=f9e2af&text_color=cdd6f4" 
-                                         alt="Moshe's GitHub Stats" class="w-full h-auto">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+                                
+                                <!-- Left Column: General + Languages -->
+                                <div class="flex flex-col gap-4">
+                                    <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors flex items-center justify-center">
+                                        <img src="https://github-readme-stats.vercel.app/api?username=MosheWelcher&show_icons=true&theme=radical&hide_border=true&bg_color=1e1e2e&title_color=cba6f7&icon_color=f9e2af&text_color=cdd6f4" 
+                                             alt="Moshe's GitHub Stats" class="max-w-full h-auto">
+                                    </div>
+                                    
+                                    <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors flex items-center justify-center">
+                                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=MosheWelcher&layout=compact&theme=radical&hide_border=true&bg_color=1e1e2e&title_color=cba6f7&text_color=cdd6f4" 
+                                             alt="Moshe's Top Languages" class="max-w-full h-auto">
+                                    </div>
                                 </div>
 
-                                <!-- Streak Stats -->
-                                <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
-                                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=MosheWelcher&theme=radical&hide_border=true&background=1e1e2e&ring=cba6f7&currStreakNum=cdd6f4&currStreakLabel=cba6f7&sideNums=cdd6f4&sideLabels=cba6f7&dates=a6e3a1&fire=fab387" 
-                                         alt="Moshe's GitHub Streak" class="w-full h-auto">
-                                </div>
+                                <!-- Right Column: Streak + Graph -->
+                                <div class="flex flex-col gap-4">
+                                    <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors flex items-center justify-center">
+                                        <img src="https://github-readme-streak-stats.herokuapp.com/?user=MosheWelcher&theme=radical&hide_border=true&background=1e1e2e&ring=cba6f7&currStreakNum=cdd6f4&currStreakLabel=cba6f7&sideNums=cdd6f4&sideLabels=cba6f7&dates=a6e3a1&fire=fab387" 
+                                             alt="Moshe's GitHub Streak" class="max-w-full h-auto">
+                                    </div>
 
-                                <!-- Top Languages -->
-                                <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
-                                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=MosheWelcher&layout=compact&theme=radical&hide_border=true&bg_color=1e1e2e&title_color=cba6f7&text_color=cdd6f4" 
-                                         alt="Moshe's Top Languages" class="w-full h-auto">
+                                    <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors flex items-center justify-center">
+                                        <img src="https://github-readme-activity-graph.vercel.app/graph?username=MosheWelcher&bg_color=1e1e2e&color=cba6f7&line=cba6f7&point=cdd6f4&area=true&hide_border=true" 
+                                             alt="Moshe's Contribution Graph" class="max-w-full h-auto">
+                                    </div>
                                 </div>
-
-                                <!-- Activity Graph -->
-                                <div class="bg-editor-active/50 rounded-lg border border-gray-700 p-2 hover:border-editor-func transition-colors">
-                                    <img src="https://github-readme-activity-graph.vercel.app/graph?username=MosheWelcher&bg_color=1e1e2e&color=cba6f7&line=cba6f7&point=cdd6f4&area=true&hide_border=true" 
-                                         alt="Moshe's Contribution Graph" class="w-full h-auto">
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
