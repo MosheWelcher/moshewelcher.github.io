@@ -185,6 +185,13 @@
             box-sizing: border-box !important;
         }
 
+        /* Mobile Sidebar Shadows */
+        @media (max-width: 768px) {
+            #main-sidebar.w-64 {
+                box-shadow: 4px 0 15px rgba(0,0,0,0.8);
+            }
+        }
+
     </style>
 </head>
 <body id="app-body" class="bg-gray-900 text-editor-text font-sans overflow-hidden h-screen selection:bg-editor-keyword selection:text-editor-bg transition-all duration-500">
@@ -193,7 +200,8 @@
     <div class="flex h-full">
 
         <!-- Combined Sidebar (Collapsed by Default) -->
-        <div id="main-sidebar" class="bg-editor-sidebar flex flex-col border-r border-gray-800 sidebar-transition w-16 sidebar-collapsed relative z-30">
+        <!-- UPDATED for Mobile: 'absolute' on mobile to act as overlay, 'relative' on desktop -->
+        <div id="main-sidebar" class="bg-editor-sidebar flex flex-col border-r border-gray-800 sidebar-transition w-16 sidebar-collapsed absolute md:relative h-full z-50">
             
             <!-- Header / Toggle (Added class sidebar-header for CSS fix) -->
             <div class="h-10 flex items-center justify-between px-4 border-b border-black sidebar-header">
@@ -251,7 +259,8 @@
         </div>
 
         <!-- Editor Area -->
-        <div class="flex-1 flex flex-col bg-editor-bg relative overflow-hidden">
+        <!-- UPDATED: Added pl-16 for mobile padding so content isn't hidden behind fixed sidebar -->
+        <div class="flex-1 flex flex-col bg-editor-bg relative overflow-hidden pl-16 md:pl-0 w-full">
             
             <!-- Tabs Bar -->
             <div class="h-10 bg-editor-sidebar flex items-center overflow-x-auto no-scrollbar border-b border-black">
@@ -545,7 +554,6 @@
                                 </div>
                                 
                             </div>
-
                         </div>
                     </div>
 
@@ -575,6 +583,8 @@
     </div>
 
     <script>
+        // --- CONFIGURATION ---
+        
         // Utility to display in-app status messages
         function showCustomAlert(message, isLarge = false) {
             const statusArea = document.getElementById('status-message');
@@ -629,7 +639,7 @@
                 body.style.fontFamily = '';
                 body.style.transform = '';
                 body.style.filter = '';
-                showCustomAlert("Phew! Back to safe mode.", true); // Made 'safe mode' alert large too, per user request implication to manage large alerts
+                showCustomAlert("Phew! Back to safe mode.", true); 
             }
         }
 
